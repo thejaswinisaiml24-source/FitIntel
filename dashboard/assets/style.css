@@ -1,0 +1,906 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+html,
+body,
+[class*="css"] {
+    font-family: 'Poppins', sans-serif;
+}
+
+.stApp {
+    background: #F5F7FB;
+}
+
+
+/* =========================================================
+   HIDE STREAMLIT DEFAULT UI
+   ========================================================= */
+
+#MainMenu {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+
+header {
+    visibility: hidden;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+section[data-testid="stSidebar"] {
+    background: #0F172A;
+}
+
+section[data-testid="stSidebar"] * {
+    color: white;
+}
+
+
+/* =========================================================
+   DASHBOARD TITLE
+   ========================================================= */
+
+.main-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: #1E3A8A;
+}
+
+.sub-title {
+    color: #64748B;
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   KPI CARD
+   ========================================================= */
+
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    margin-bottom: 15px;
+
+    animation: fiFadeUp 0.6s ease-out both;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.12);
+}
+
+.card-title {
+    color: #64748B;
+    font-size: 15px;
+}
+
+.card-value {
+    font-size: 34px;
+    color: #2563EB;
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   CHART CARD
+   ========================================================= */
+
+.chart {
+    background: white;
+    padding: 18px;
+    border-radius: 18px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+    margin-bottom: 20px;
+
+    animation: fiFadeUp 0.7s ease-out both;
+}
+
+
+/* =========================================================
+   AI CARD
+   ========================================================= */
+
+.ai-card {
+    background: linear-gradient(
+        135deg,
+        #2563EB,
+        #1E40AF
+    );
+
+    color: white;
+    border-radius: 20px;
+    padding: 25px;
+
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, .2);
+
+    animation: fiFadeUp 0.8s ease-out both;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.stButton > button {
+    background: #2563EB;
+    color: white;
+
+    border-radius: 12px;
+    border: none;
+
+    height: 48px;
+    width: 100%;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.stButton > button:hover {
+    background: #1D4ED8;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(37, 99, 235, .25);
+}
+
+
+/* =========================================================
+   STREAMLIT METRIC
+   ========================================================= */
+
+[data-testid="metric-container"] {
+    background: white;
+
+    border-radius: 18px;
+    padding: 15px;
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, .08);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+[data-testid="metric-container"]:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 25px rgba(37, 99, 235, .12);
+}
+
+
+/* =========================================================
+   DATAFRAME
+   ========================================================= */
+
+[data-testid="stDataFrame"] {
+    border-radius: 18px;
+}
+
+
+/* =========================================================
+   FITINTEL FITNESS HERO
+   ========================================================= */
+
+.fi-fitness-hero {
+    position: relative;
+
+    width: 100%;
+    min-height: 330px;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    margin: 10px 0 30px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #8ED6FF 0%,
+            #C9EEFF 45%,
+            #EAF9FF 70%,
+            #B8E986 70%,
+            #79C95B 100%
+        );
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, .12);
+}
+
+
+/* =========================================================
+   SUN
+   ========================================================= */
+
+.fi-sun {
+    position: absolute;
+
+    width: 95px;
+    height: 95px;
+
+    top: 35px;
+    right: 10%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #FFF8C5 0%,
+            #FFE47A 45%,
+            #FFD45A 70%,
+            rgba(255, 212, 90, .2) 71%
+        );
+
+    box-shadow:
+        0 0 45px rgba(255, 214, 90, .65);
+
+    animation:
+        fiSunPulse 5s ease-in-out infinite;
+}
+
+
+/* Sun rays */
+
+.fi-sun::before {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    top: -27px;
+    left: -27px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 224, 120, .18),
+            transparent 65%
+        );
+}
+
+
+/* =========================================================
+   CLOUDS
+   ========================================================= */
+
+.fi-cloud {
+    position: absolute;
+
+    width: 110px;
+    height: 35px;
+
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, .78);
+
+    filter: blur(.2px);
+
+    animation:
+        fiCloudMove 22s linear infinite;
+}
+
+.fi-cloud::before,
+.fi-cloud::after {
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .82);
+}
+
+.fi-cloud::before {
+    width: 45px;
+    height: 45px;
+
+    left: 18px;
+    bottom: 8px;
+}
+
+.fi-cloud::after {
+    width: 55px;
+    height: 55px;
+
+    right: 15px;
+    bottom: 5px;
+}
+
+.fi-cloud-1 {
+    top: 50px;
+    left: -140px;
+    animation-delay: 0s;
+}
+
+.fi-cloud-2 {
+    top: 105px;
+    left: -250px;
+
+    transform: scale(.75);
+
+    animation-delay: 8s;
+}
+
+
+/* =========================================================
+   SUNLIGHT
+   ========================================================= */
+
+.fi-sunlight {
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    top: -160px;
+    right: 0;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 231, 140, .30),
+            transparent 65%
+        );
+
+    animation:
+        fiSunlight 6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   PARK TREES
+   ========================================================= */
+
+.fi-tree {
+    position: absolute;
+
+    bottom: 75px;
+
+    width: 24px;
+    height: 100px;
+
+    background: #795548;
+
+    border-radius: 10px;
+}
+
+.fi-tree::before {
+    content: "";
+
+    position: absolute;
+
+    width: 95px;
+    height: 95px;
+
+    left: -35px;
+    top: -55px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            #91D66A,
+            #4EAA52 65%,
+            #398B45 100%
+        );
+}
+
+.fi-tree::after {
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    left: 5px;
+    top: -35px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #A4E67A,
+            #55B85A 70%
+        );
+}
+
+.fi-tree-1 {
+    left: 7%;
+    transform: scale(.9);
+}
+
+.fi-tree-2 {
+    left: 22%;
+    bottom: 85px;
+    transform: scale(.7);
+}
+
+.fi-tree-3 {
+    right: 18%;
+    bottom: 70px;
+    transform: scale(.85);
+}
+
+
+/* =========================================================
+   GROUND / RUNNING TRACK
+   ========================================================= */
+
+.fi-track {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: 0;
+
+    height: 82px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #8BD064 0%,
+            #67B653 100%
+        );
+}
+
+.fi-track::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: 30px;
+
+    height: 4px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,.65) 0 45px,
+            transparent 45px 85px
+        );
+
+    animation:
+        fiTrackMove 2s linear infinite;
+}
+
+
+/* =========================================================
+   JOGGER AREA
+   ========================================================= */
+
+.fi-jogger {
+    position: absolute;
+
+    bottom: 55px;
+
+    left: 48%;
+
+    width: 90px;
+    height: 155px;
+
+    z-index: 10;
+
+    animation:
+        fiJoggerBounce .55s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   JOGGER HEAD
+   ========================================================= */
+
+.fi-jogger-head {
+    position: absolute;
+
+    width: 35px;
+    height: 35px;
+
+    top: 0;
+    left: 28px;
+
+    border-radius: 50%;
+
+    background: #C98262;
+}
+
+
+/* Hair */
+
+.fi-jogger-head::before {
+    content: "";
+
+    position: absolute;
+
+    width: 38px;
+    height: 30px;
+
+    top: -4px;
+    left: -2px;
+
+    border-radius:
+        50% 50% 40% 30%;
+
+    background: #3B2418;
+
+    transform:
+        rotate(-8deg);
+}
+
+
+/* =========================================================
+   JOGGER BODY
+   ========================================================= */
+
+.fi-jogger-body {
+    position: absolute;
+
+    top: 35px;
+    left: 25px;
+
+    width: 42px;
+    height: 65px;
+
+    border-radius:
+        20px 20px 12px 12px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #7C3AED,
+            #5B21B6
+        );
+
+    transform:
+        rotate(4deg);
+}
+
+
+/* =========================================================
+   JOGGER ARM
+   ========================================================= */
+
+.fi-jogger-arm {
+    position: absolute;
+
+    width: 12px;
+    height: 58px;
+
+    top: 42px;
+    left: 18px;
+
+    border-radius: 10px;
+
+    background: #C98262;
+
+    transform-origin: top center;
+
+    animation:
+        fiArmRun .55s ease-in-out infinite;
+}
+
+.fi-jogger-arm.right {
+    left: 57px;
+
+    animation-delay: -.275s;
+}
+
+
+/* =========================================================
+   JOGGER LEGS
+   ========================================================= */
+
+.fi-jogger-leg {
+    position: absolute;
+
+    width: 14px;
+    height: 65px;
+
+    top: 92px;
+    left: 32px;
+
+    border-radius: 10px;
+
+    background: #263238;
+
+    transform-origin: top center;
+
+    animation:
+        fiLegRun .55s ease-in-out infinite;
+}
+
+.fi-jogger-leg.right {
+    left: 50px;
+
+    animation-delay: -.275s;
+}
+
+
+/* Shoes */
+
+.fi-jogger-leg::after {
+    content: "";
+
+    position: absolute;
+
+    width: 30px;
+    height: 12px;
+
+    bottom: -4px;
+    left: -5px;
+
+    border-radius: 12px 16px 8px 8px;
+
+    background: white;
+}
+
+
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
+
+.fi-hero-content {
+    position: absolute;
+
+    z-index: 20;
+
+    left: 35px;
+    top: 35px;
+
+    max-width: 420px;
+}
+
+.fi-hero-title {
+    font-size: 30px;
+    font-weight: 700;
+
+    color: #12305B;
+
+    margin-bottom: 6px;
+}
+
+.fi-hero-subtitle {
+    font-size: 15px;
+
+    color: #35536F;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   HERO BADGE
+   ========================================================= */
+
+.fi-hero-badge {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    margin-bottom: 12px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.75);
+
+    color: #2563EB;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    backdrop-filter: blur(8px);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes fiFadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes fiSunPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: .85;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
+
+@keyframes fiSunlight {
+
+    0%,
+    100% {
+        opacity: .5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: .8;
+        transform: scale(1.1);
+    }
+}
+
+
+@keyframes fiCloudMove {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(115vw);
+    }
+}
+
+
+@keyframes fiTrackMove {
+
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -130px 0;
+    }
+}
+
+
+@keyframes fiJoggerBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+@keyframes fiArmRun {
+
+    0%,
+    100% {
+        transform: rotate(35deg);
+    }
+
+    50% {
+        transform: rotate(-35deg);
+    }
+}
+
+
+@keyframes fiLegRun {
+
+    0%,
+    100% {
+        transform: rotate(32deg);
+    }
+
+    50% {
+        transform: rotate(-32deg);
+    }
+}
+
+
+/* =========================================================
+   GENERAL PAGE ANIMATION
+   ========================================================= */
+
+.main-title,
+.sub-title {
+    animation:
+        fiFadeUp .6s ease-out both;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .main-title {
+        font-size: 30px;
+    }
+
+    .sub-title {
+        font-size: 15px;
+    }
+
+    .fi-fitness-hero {
+        min-height: 360px;
+    }
+
+    .fi-hero-content {
+        left: 20px;
+        top: 25px;
+
+        max-width: 300px;
+    }
+
+    .fi-hero-title {
+        font-size: 24px;
+    }
+
+    .fi-jogger {
+        left: 50%;
+    }
+
+    .fi-sun {
+        right: 5%;
+        width: 70px;
+        height: 70px;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
